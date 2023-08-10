@@ -1,0 +1,17 @@
+body {
+    font-family: 'Gloria Hallelujah', cursive;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+.form-group {
+    width: 900px;
+}
+    
+section {
+    border-radius: 2px black;
+}
+
+.column {
+    border-radius: 2px black;
+}
