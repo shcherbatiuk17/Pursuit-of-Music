@@ -10,13 +10,21 @@ class User extends Model {
 
 User.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
+    email: {
+      type: DataTypes.STRING,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
+      unique: true,
+      validate: {
+        isEmail: true
+      }
     },
-  
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+      },
+    },
   },
   {
     hooks: {
@@ -33,4 +41,9 @@ User.init(
   }
 );
 
+
+User.create({
+  email:"test@ex.com",
+  password:"ABCD1234"
+}).then(res=>console.log("created"));
 module.exports = User;
