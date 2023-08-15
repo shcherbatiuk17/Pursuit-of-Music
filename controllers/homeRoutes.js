@@ -1,26 +1,50 @@
 const router = require('express').Router();
 const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-
+  try {
     res.render('homepage', {
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
     });
 
+    const user = userData.get({ plain: true });
+
+    res.render('dashboard', {
+      ...user,
+      logged_in: true,
+      user_id: req.session.user_id
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.user_id) {
+    res.redirect('/dashboard');
+    return;
+  }
+  res.render('login');
 });
 
 router.get('/signup', (req, res) => {
-  res.render('signup');
-});
-
-
-router.get('/', async (req, res) => {
-    res.render('trips', {
-    });
-});
-
-router.get('/logout', (req, res) => {
-  res.render('/');
-  //})
-});
+  if (req.session.logged_in) {
+    res.redirect('/dashboard')
+    return
+  }
+  res.render('signup')
+})
 
 module.exports = router;
