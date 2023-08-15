@@ -1,3 +1,8 @@
-const User = require('./User');
+const User = require('./user')
 
-module.exports = { User };
+//User.hasMany(Playlists, {
+    //foreignKey: "user_id",
+    //onDelete: 'CASCADE'
+//})
+
+module.exports = { User }
