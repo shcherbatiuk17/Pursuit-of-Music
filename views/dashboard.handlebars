@@ -1,3 +1,15 @@
 <header>
     <h1 class="is-size-2 has-text-centered m-4">Welcome back, {{name}}</h1>
 </header>
+
+    {{#each songs as |song|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <img src="{{song.coverUrl}}">
+        <h4><a>{{song.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}

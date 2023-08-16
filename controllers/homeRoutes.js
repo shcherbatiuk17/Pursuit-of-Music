@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
+const deezerApi = require('./deezerApi'); // Adjust the path accordingly
 
 router.get('/', async (req, res) => {
   try {
@@ -20,11 +21,18 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-
+    const artistName = 'slipknot';
+    let songs;
+    try {
+       songs = await deezerApi.getTopSongsByArtist(artistName);
+    } catch (error) {
+      res.render('error', { error: error.message });
+    }
     res.render('dashboard', {
       ...user,
       logged_in: true,
-      user_id: req.session.user_id
+      user_id: req.session.user_id,
+      songs
     });
   } catch (err) {
     res.status(500).json(err);
@@ -47,4 +55,5 @@ router.get('/signup', (req, res) => {
   res.render('signup')
 })
 
+  
 module.exports = router;

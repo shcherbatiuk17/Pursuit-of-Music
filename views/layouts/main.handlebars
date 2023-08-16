@@ -54,6 +54,10 @@
             </div>
         </div>
     </nav>
+    {{#each songs as |song|}}
+    1. {{song.name}}: by {{song.artist}}
+    {{/each}}
+
     {{/if}}
 
     {{{body}}}

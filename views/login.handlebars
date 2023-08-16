@@ -40,4 +40,15 @@
     </div>
 </section>
 
+    {{#each songs as |song|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a>{{song.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+    
 <script src="/js/login.js"></script>
