@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    res.status(400).json({ message: 'Passwords must be at least 8 characters' });
+    res.status(500).json(err);
   }
 });
 

@@ -39,6 +39,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+
 router.get('/login', (req, res) => {
   if (req.session.user_id) {
     res.redirect('/dashboard');

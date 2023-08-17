@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
+const User = require('./User')
 
-class Playlists extends Model {}
+class Playlist extends Model {}
 
-Playlists.init(
+Playlist.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -15,6 +16,22 @@ Playlists.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model:'user',
+                key:'id'
+            }
+        },
+        songs:[{
+            type:DataTypes.INTEGER,
+            references: {
+                models:'songs',
+                key:'id',
+            }
+
+        }]
     },
     {
         sequelize,
@@ -25,9 +42,7 @@ Playlists.init(
       }
     );
 
-    Playlists.belongsTo(User, {
-        foreignKey:'user_id',
-    });
+
     
     module.exports = Playlist;
 

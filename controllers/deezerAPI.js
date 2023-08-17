@@ -36,8 +36,9 @@ function getTopSongsByArtist(artistName, limit = 5) {
         throw new Error(`Fetch error: ${error}`);
       });
   }
-  module.exports = {
+    module.exports = {
     getTopSongsByArtist
+    
   };
-  
+
   

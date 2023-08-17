@@ -2,6 +2,7 @@ const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 const bcrypt = require('bcrypt')
 
+
 class User extends Model {}
 
 User.init(
@@ -50,10 +51,5 @@ User.init(
         modelName: 'user'
     }
 )
-
-User.hasMany(Playlists, {
-    foreignKey: 'user_id',
-    onDelete:'CASCADE',
-});
 
 module.exports = User
