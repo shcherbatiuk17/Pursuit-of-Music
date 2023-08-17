@@ -51,4 +51,9 @@ User.init(
     }
 )
 
+User.hasMany(Playlists, {
+    foreignKey: 'user_id',
+    onDelete:'CASCADE',
+});
+
 module.exports = User
