@@ -1,6 +1,5 @@
-const searchButton = document.getElementById('#song-search-btn'); 
+const searchButton = document.getElementById('song-search-btn'); 
 const userInput = document.querySelector('#inputArtist');
-
 
 // Handle click event on search button
 function getUserInput(event) {
@@ -14,8 +13,13 @@ function getUserInput(event) {
     userInput.value = '';
 
     if (artistName) {
-
+        fetch('/songs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ artistName: artistName})
+        })
     };
+
     console.log(artistName)
 };
 
@@ -24,4 +28,4 @@ function getUserInput(event) {
 
 
 // Event listener for search button
-searchButton.addEventListener('submit', getUserInput);
+searchButton.addEventListener('click', getUserInput);

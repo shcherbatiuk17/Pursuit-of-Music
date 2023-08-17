@@ -39,6 +39,34 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+router.get('/songs', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+    const artistName = req.body.artistName;
+    let songs;
+    try {
+       songs = await deezerApi.getTopSongsByArtist(artistName);
+       console.log(songs)
+    } catch (error) {
+      res.render('error', { error: error.message });
+    }
+    res.render('dashboard', {
+      ...user,
+      logged_in: true,
+      user_id: req.session.user_id,
+      songs
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
 router.get('/login', (req, res) => {
   if (req.session.user_id) {
     res.redirect('/dashboard');
