@@ -2,14 +2,58 @@
     <h1 class="is-size-2 has-text-centered m-4">Welcome back, {{name}}</h1>
 </header>
 
+<div class="container dashboard-one">
+  <div class="columns">
+    <div class="column is-4">Create Playlist
+      
+    </div>
+    <div class="column is-4 is-flex-direction-column">
+         <div class="field has-addons">
+            <p class="control is-expanded">
+                <input id="inputArtist" class="input is-medium" type="text" placeholder="Enter a song name!">
+            </p>
+            <p class="control">
+                <button id="song-search-btn" class="button is-medium">Search</button>
+            </p>
+        </div>
     {{#each songs as |song|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <img src="{{song.coverUrl}}">
-        <h4><a>{{song.title}}</a></h4>
+    <div class="columns is-flex-direction-row is-flex-wrap player">
+      <div class="column">
+        <div class="img">
+          <img src="{{song.coverUrl}}">
+        </div>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      <div class="column">
+        <div>
+          {{song.title}}
+          {{song.artist}}
+        </div>
+      </div>
+      </div>
+        {{/each}}
+    </div>
+  </div>
+
+  <script src="/js/songSearch.js"></script>
+<!--
+<div class="container dashboard-one">
+  <div class="columns">
+    <div class="column is-5 playlist-box">
+      <h5>Create a Playlist</h5>
+      <div class="container">
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input is-rounded" id="playlist-search-btn" type="text" placeholder="Enter playlist name">
+          </div>
+        <div class="control">
+          <a class="button is-rounded is-warning">
+            Submit
+          </a>
+        </div>
       </div>
     </div>
-    {{/each}}
+    <div class="column is-5 is-flex-direction-column song-search-box">Test
+    </div>
+ </div>
+</div>
+-->
