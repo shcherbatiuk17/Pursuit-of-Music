@@ -24,8 +24,5 @@ function getUserInput(event) {
 };
 
 
-
-
-
 // Event listener for search button
 searchButton.addEventListener('click', getUserInput);
