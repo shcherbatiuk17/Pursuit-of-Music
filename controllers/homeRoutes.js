@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
-const deezerApi = require('./deezerApi'); // Adjust the path accordingly
+const deezerApi = require('./deezerAPI'); // Adjust the path accordingly
 
 router.get('/', async (req, res) => {
   try {
@@ -21,16 +21,27 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    const artistName = 'slipknot';
-    let songs;
-    try {
-       songs = await deezerApi.getTopSongsByArtist(artistName);
-    } catch (error) {
-      res.render('error', { error: error.message });
-    }
     res.render('dashboard', {
       ...user,
       logged_in: true,
+      user_id: req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/dashboard', withAuth, async (req, res) => {
+  try {
+    // Get the artist name from the form
+    const artistName = req.body.artistName;
+
+    // Fetch top songs by the artist using the deezerApi module
+    const songs = await deezerApi.getTopSongsByArtist(artistName);
+
+    // Render the dashboard view with the retrieved songs
+    res.render('dashboard', {
+      logged_in: req.session.logged_in,
       user_id: req.session.user_id,
       songs
     });

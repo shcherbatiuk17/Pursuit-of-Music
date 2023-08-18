@@ -1,11 +1,16 @@
 body {
     font-family: 'Gloria Hallelujah', cursive;
     letter-spacing: 2px;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 section {
     margin-top: -60px
+}
+
+label {
+    padding-bottom: 10px;
 }
 
 .navbar {
@@ -65,8 +70,60 @@ section {
     padding-top: 20px;
 }
 
-label {
-    padding-bottom: 10px;
+.dashboard-one {
+    margin-top: 40px;
 }
 
+.playlist-box {
+    min-height: 700px;
+    min-width: 330px;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.player {
+    width: 600px;
+    height: 200px;
+    overflow: hidden;
+    margin: 5px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .header {
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .img {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: linear-gradient(120deg, rgba(255,224,138,255), #ffe168);
+    overflow: hidden;
+    margin-top: 15px;
+  }
+  
+  .img img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 9999;
+  }
+  
 /* media query for navbar => turn into flex box => wrap => column
