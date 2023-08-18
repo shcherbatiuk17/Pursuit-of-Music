@@ -10,12 +10,20 @@
     <div class="column is-4 is-flex-direction-column">
          <div class="field has-addons">
             <p class="control is-expanded">
-                <input id="inputArtist" class="input is-medium" type="text" placeholder="Enter a song name!">
+                {{!-- <input id="inputArtist" class="input is-medium" type="text" placeholder="Enter a song name!"> --}}
+                {{!-- <form action="/dashboard" method="POST">
+  <input type="text" name="artistName" placeholder="Enter artist name">
+  <button type="submit">Search</button>
+</form>
             </p>
             <p class="control">
                 <button id="song-search-btn" class="button is-medium">Search</button>
             </p>
-        </div>
+        </div> --}}
+        <form action="/dashboard" method="POST">
+  <input type="text" name="artistName" placeholder="Enter artist name">
+  <button type="submit">Search</button>
+</form>
     {{#each songs as |song|}}
     <div class="columns is-flex-direction-row is-flex-wrap player">
       <div class="column">

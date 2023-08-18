@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
-const deezerApi = require('./deezerApi'); // Adjust the path accordingly
+const deezerApi = require('./deezerAPI'); // Adjust the path accordingly
 
 router.get('/', async (req, res) => {
   try {
@@ -14,49 +14,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/dashboard', withAuth, async (req, res) => {
+router.post('/dashboard', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-
-    const user = userData.get({ plain: true });
-    const artistName = 'slipknot';
-    let songs;
-    try {
-       songs = await deezerApi.getTopSongsByArtist(artistName);
-    } catch (error) {
-      res.render('error', { error: error.message });
-    }
-    res.render('dashboard', {
-      ...user,
-      logged_in: true,
-      user_id: req.session.user_id,
-      songs
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/songs', withAuth, async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
-
-    const user = userData.get({ plain: true });
+    // Get the artist name from the form
     const artistName = req.body.artistName;
-    let songs;
-    try {
-       songs = await deezerApi.getTopSongsByArtist(artistName);
-       console.log(songs)
-    } catch (error) {
-      res.render('error', { error: error.message });
-    }
+
+    // Fetch top songs by the artist using the deezerApi module
+    const songs = await deezerApi.getTopSongsByArtist(artistName);
+
+    // Render the dashboard view with the retrieved songs
     res.render('dashboard', {
-      ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
       user_id: req.session.user_id,
       songs
     });
@@ -64,8 +32,6 @@ router.get('/songs', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
 
 router.get('/login', (req, res) => {
   if (req.session.user_id) {
