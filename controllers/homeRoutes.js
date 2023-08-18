@@ -14,6 +14,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+    res.render('dashboard', {
+      ...user,
+      logged_in: true,
+      user_id: req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/dashboard', withAuth, async (req, res) => {
   try {
     // Get the artist name from the form
