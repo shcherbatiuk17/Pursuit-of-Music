@@ -16,11 +16,6 @@ Songs.init(
             type: DataTypes.STRING,
             allowNull:false,
         },
-        artist: {
-            type: DataTypes.STRING,
-            allowNull: false,
-
-        },
         
     },
     {
