@@ -1,67 +1,59 @@
-<header>
-    <h1 class="is-size-2 has-text-centered m-4">Welcome back, {{name}}</h1>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="is-size-2 has-text-centered m-4">Welcome back, {{name}}</h1>
+    </header>
 
-<div class="container dashboard-one">
-  <div class="columns">
-    <div class="column is-4">Create Playlist
-      
-    </div>
-    <div class="column is-4 is-flex-direction-column">
-         <div class="field has-addons">
-            <p class="control is-expanded">
-                {{!-- <input id="inputArtist" class="input is-medium" type="text" placeholder="Enter a song name!"> --}}
-                {{!-- <form action="/dashboard" method="POST">
-  <input type="text" name="artistName" placeholder="Enter artist name">
-  <button type="submit">Search</button>
-</form>
-            </p>
-            <p class="control">
-                <button id="song-search-btn" class="button is-medium">Search</button>
-            </p>
-        </div> --}}
-        <form action="/dashboard" method="POST">
-  <input type="text" name="artistName" placeholder="Enter artist name">
-  <button type="submit">Search</button>
-</form>
-    {{#each songs as |song|}}
-    <div class="columns is-flex-direction-row is-flex-wrap player">
-      <div class="column">
-        <div class="img">
-          <img src="{{song.coverUrl}}">
+    <div class="container dashboard-one">
+        <div class="columns">
+            <div class="column is-4">
+                <h2>Create Playlist</h2>
+                <div class="container">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input class="input is-rounded" id="playlist-search-btn" type="text" placeholder="Enter playlist name">
+                        </div>
+                        <div class="control">
+                            <a class="button is-rounded is-warning">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-8">
+                <h2>Search Songs by Artist</h2>
+                <form action="/dashboard" method="POST">
+                    <input type="text" name="artistName" placeholder="Enter artist name">
+                    <button type="submit" class="button is-medium">Search</button>
+                </form>
+                <ul class="song-list">
+                    {{#each songs as |song|}}
+                    <li class="song-item">
+                        <div class="song-container">
+                            <div class="img">
+                                <img src="{{song.coverUrl}}" alt="{{song.title}} Cover">
+                            </div>
+                            <div class="song-details">
+                                <p class="song-title">{{song.title}}</p>
+                                <p class="song-artist">{{song.artist}}</p>
+                                <button class="save-button" data-song-id="{{song.id}}">Save</button>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="column">
-        <div>
-          {{song.title}}
-          {{song.artist}}
-        </div>
-      </div>
-      </div>
-        {{/each}}
     </div>
-  </div>
 
-  <script src="/js/songSearch.js"></script>
-<!--
-<div class="container dashboard-one">
-  <div class="columns">
-    <div class="column is-5 playlist-box">
-      <h5>Create a Playlist</h5>
-      <div class="container">
-        <div class="field has-addons">
-          <div class="control">
-            <input class="input is-rounded" id="playlist-search-btn" type="text" placeholder="Enter playlist name">
-          </div>
-        <div class="control">
-          <a class="button is-rounded is-warning">
-            Submit
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column is-5 is-flex-direction-column song-search-box">Test
-    </div>
- </div>
-</div>
--->
+    <script src="/js/songSearch.js"></script>
+</body>
+</html>

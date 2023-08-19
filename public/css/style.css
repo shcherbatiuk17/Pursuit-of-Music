@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Gloria Hallelujah', cursive;
     letter-spacing: 2px;
@@ -5,14 +6,12 @@ body {
     font-weight: bold;
 }
 
+/* Sections */
 section {
-    margin-top: -60px
+    margin-top: -60px;
 }
 
-label {
-    padding-bottom: 10px;
-}
-
+/* Navbar Styles */
 .navbar {
     padding: 30px 30px 0px 30px;
 }
@@ -31,11 +30,12 @@ label {
     padding-left: 15px;
 }
 
+/* Container Styles */
 .container {
     border-radius: 25px;
 }
 
-/* Add and set dimensions of homepage image */
+/* Homepage Image */
 .homepage-image {
     height: 700px;
     width: 100%;
@@ -45,35 +45,37 @@ label {
     border-radius: 25px;
 }
 
+/* Block Styles */
 .block {
     padding: 10px;
 }
 
+/* Signup Container */
 .signup-container {
     display: flex;
 }
 
+/* Input Label Box */
 .input-label-box {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    padding-top: 20px;
 }
 
-/* Container for input field columns and register button */
+/* Column Container */
 .col {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
 
-.input-label-box {
-    padding-top: 20px;
-}
-
+/* Dashboard One */
 .dashboard-one {
     margin-top: 40px;
 }
 
+/* Playlist Box */
 .playlist-box {
     min-height: 700px;
     min-width: 330px;
@@ -81,6 +83,7 @@ label {
     border: 2px solid black;
 }
 
+/* Player Styles */
 .player {
     width: 600px;
     height: 200px;
@@ -94,36 +97,27 @@ label {
     backdrop-filter: blur(8.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  
-  .header {
+}
+
+.header {
     border-bottom: 1px solid #f5f5f5;
     font-size: 20px;
     font-weight: bold;
     color: #fff;
-  }
-  
-  .img {
+}
+
+.img {
     width: 160px;
     height: 160px;
-    display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px auto;
     border-radius: 50%;
-    background: linear-gradient(120deg, rgba(255,224,138,255), #ffe168);
+    background: linear-gradient(120deg, rgba(255, 224, 138, 255), #ffe168);
     overflow: hidden;
     margin-top: 15px;
-  }
-  
-  .img img {
+}
+
+.img img {
     width: 150px;
     height: 150px;
-    display: block;
-    margin: 20px auto;
-    border-radius: 50%;
-    object-fit: cover;
-    z-index: 9999;
-  }
-  
-/* media query for navbar => turn into flex box => wrap => column
