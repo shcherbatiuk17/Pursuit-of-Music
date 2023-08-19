@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ artistName: artistName }),
         })
+/*
           .then((response) => response.json())
           .then((data) => {
             displaySearchResults(data);
@@ -49,3 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Event listener for search button
     searchButton.addEventListener('click', getUserInput);
   });
+    };
+
+    console.log(artistName)
+};
+
+
+// Event listener for search button
+searchButton.addEventListener('click', getUserInput);
+*/
