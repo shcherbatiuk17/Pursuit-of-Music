@@ -2,7 +2,15 @@ const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 const bcrypt = require('bcrypt')
 
-class User extends Model {}
+class User extends Model {
+    static associate(models) {
+      // Define the associations here
+      User.belongsToMany(models.Playlist, {
+        through: 'UserPlaylists', // A junction table name
+        foreignKey: 'user_id',
+      });
+    }
+  }
 
 User.init(
     {

@@ -38,11 +38,11 @@ label {
 /* Add and set dimensions of homepage image */
 .homepage-image {
     height: 700px;
-    width: 100%;
-    background-image: url("../images/image.jpg");
+    width: 105%;
+    background-image: url("../images/image.png");
     background-size: cover;
     background-position: center;
-    border-radius: 25px;
+    border-radius: 30px;
 }
 
 .block {
