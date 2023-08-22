@@ -3,6 +3,7 @@ const { User } = require('../models');
 const withAuth = require('../utils/auth');
 const deezerApi = require('./deezerAPI'); // Adjust the path accordingly
 
+// Route to render the homepage
 router.get('/', async (req, res) => {
   try {
     res.render('homepage', {
@@ -14,6 +15,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to render the dashboard page and authenticate the user is signed in
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -50,6 +52,7 @@ router.post('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// Route to render the login page
 router.get('/login', (req, res) => {
   if (req.session.user_id) {
     res.redirect('/dashboard');
@@ -58,6 +61,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Route to render the signup page
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard')

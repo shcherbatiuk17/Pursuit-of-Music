@@ -1,26 +1,24 @@
-
 <div class="container dashboard-one">
   <div class="columns">
-    <div class="column is-4">Create Playlist
+    <div class="column is-4 is-flex-direction-column">
+      <h5>Create Playlist</h5>
       <div class="container">
           <div class="control">
             <input class="input is-rounded" id="playlist-search-btn" type="text" placeholder="Enter playlist name">
           </div>
-        <div class="control">
-          <a class="button is-rounded is-warning">
-            Submit
-          </a>
+          <div class="control">
+            <button class="button is-fullwidth is-rounded is-warning">Submit</button>
+          </div>
         </div>
       </div>
-      
-    </div>
-    <div class="column is-4 is-flex-direction-column">
-        <form action="/dashboard" method="POST">
-  <input type="text" name="artistName" placeholder="Enter artist name">
-  <button type="submit">Search</button>
-</form>
+    <div class="column is-5 is-flex-direction-column song-result-box">
+      <h5>Search by your favorite artist</h5>
+      <form action="/dashboard" method="POST">
+        <input class="input is-rounded" type="text" name="artistName" placeholder="Enter artist name">
+        <button class="button is-rounded is-warning is-fullwidth" type="submit">Search</button>
+      </form>
     {{#each songs as |song|}}
-    <div class="columns is-flex-direction-row is-flex-wrap player">
+    <div class="columns is-flex-direction-row is-flex-wrap card">
       <div class="column">
         <div class="img">
           <img src="{{song.coverUrl}}">
@@ -32,7 +30,7 @@
         </div>
       </div>
       </div>
-      <button class="button">Save</button>
+      <button class="button is-rounded is-warning">Save Song</button>
         {{/each}}
     </div>
   </div>

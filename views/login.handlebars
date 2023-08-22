@@ -6,48 +6,36 @@
                 </figure>
             </div>
             <div class="column">  
-                {{!--------}}
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
                 <div class="login-signup">
-    <div>
-        <form class="box column form login-form">
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                    <input class="input form-input" type="email" id="email-login"
-                        placeholder="email@email.com">
+                    <form class="box column form login-form">
+                        <div class="field">
+                            <label class="label">Email</label>
+                        </div>
+                        <div class="control">
+                            <input class="input form-input" type="email" id="email-login" placeholder="email@email.com">
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                        </div>
+                        <div class="control">
+                            <input class="input" type="password" placeholder="Password" id="password-login">
+                        </div>
+                        <div>
+                            <button class="button is-warning is-rounded signin-btn">Login</button>
+                            <p class="p-2">Already a member?<a href="/signup"> Register</a></p>
+                        </div>
+                    </form>
                 </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Password</label>
-                <div class="control">
-                    <input class="input" type="password" placeholder="Password" id="password-login">
-                </div>
-            </div>
-
-            <button class="button is-warning is-rounded signin-btn">Login</button>
-            <p class="p-2">Already a member?<a href="/signup"> Register</a></p>
-        </form>
-    </div>
-</div>
-{{!-------------------------------------------}}
-        </div> 
+        </div>
     </div>
 </section>
 
     {{#each songs as |song|}}
     <div class="row mb-2">
-      <div class="col-md-8">
+        <div class="col-md-8">
         <h4><a>{{song.title}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
-      </div>
+    </div>
+    <div class="col-md-4"><button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
     </div>
     {{/each}}
     
