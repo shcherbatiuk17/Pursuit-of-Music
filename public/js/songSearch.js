@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ artistName: artistName }),
         })
-/*
+
           .then((response) => response.json())
           .then((data) => {
             displaySearchResults(data);
@@ -47,15 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsContainer.textContent = 'No results found.';
       }
     }
-  // Event listener for search button
-    searchButton.addEventListener('click', getUserInput);
+
   });
-    };
-
-    console.log(artistName)
-};
-
 
 // Event listener for search button
 searchButton.addEventListener('click', getUserInput);
-*/

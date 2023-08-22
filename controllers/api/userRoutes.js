@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 
+// GET route for finding a user by their id
 router.get("/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
@@ -15,6 +16,7 @@ router.get("/:id", async (req, res) => {
   };
 });
 
+// POST route to create a new user 
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -22,7 +24,7 @@ router.post('/', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Passwords must be at least 8 characters' });
+        .json({ message: 'Your password must be at least 8 characters.' });
       return;
     }
 
@@ -33,7 +35,7 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    res.status(400).json({ message: 'Passwords must be at least 8 characters' });
+    res.status(400).json({ message: 'Your password must be at least 8 characters.' });
   }
 });
 
@@ -44,7 +46,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Invalid email, please try again' })
+        .json({ message: 'Not a valid email, try again.' })
       return
     }
 
