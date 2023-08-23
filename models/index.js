@@ -1,4 +1,4 @@
-const User = require('./user')
+const User = require('./User')
 
 //User.hasMany(Playlists, {
     //foreignKey: "user_id",
