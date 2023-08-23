@@ -1,6 +1,6 @@
 # Pursuit of Music
 
-[Deployed Application on Heroku](https://www.deezer.com/us/)
+[Deployed Application on Heroku](https://kardashev-fe383173c9b7.herokuapp.com/)
 
 For music lovers, this application will allow users to register and log in securely to have access to millions of songs. Whether they need calming tunes to unwind after a long day, energetic tracks to keep them motivated during hikes, or upbeat melodies to make cleaning more enjoyable. Our users, when using our application, will let the music take them on a journey of emotions and memories, enhancing every aspect of their life. 
 
@@ -38,7 +38,7 @@ For music lovers, this application will allow users to register and log in secur
 5. Seed the data: `npm seed`
 1. Start the server: `npm start`
 2. Open your web browser and navigate to `http://localhost:3001` (or the specified port)
-3. Heroku: 
+3. Heroku: https://kardashev-fe383173c9b7.herokuapp.com/
 
 ## Features
 - User authentication via express-session and cookies
@@ -52,7 +52,7 @@ For music lovers, this application will allow users to register and log in secur
 - Handlebars
 - MySQL
 - Sequelize
-- [Deezer API](https://kardashev-fe383173c9b7.herokuapp.com/)
+- [Deezer API](https://www.deezer.com/us/)
 - Bulma CSS Framework
 - Bcrypt
 - Babel/core
