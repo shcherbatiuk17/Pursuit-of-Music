@@ -52,7 +52,7 @@ For music lovers, this application will allow users to register and log in secur
 - Handlebars
 - MySQL
 - Sequelize
-- [Deezer API](https://www.deezer.com/us/)
+- [Deezer API](https://kardashev-fe383173c9b7.herokuapp.com/)
 - Bulma CSS Framework
 - Bcrypt
 - Babel/core
