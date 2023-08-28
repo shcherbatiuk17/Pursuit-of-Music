@@ -20,8 +20,16 @@ For music lovers, this application will allow users to register and log in secur
 ## Getting Started
 
 ### Prerequisites
-- Node.js and the following npm dependencies: express,  
-  express-handlebars, express-session, contact-session-sequelize, mysql2, sequelize and dotenv
+- Node.js and the following npm dependencies:
+  - express,
+  - express-handlebars,
+  - express-session,
+  - contact-session-sequelize,
+  - mysql2,
+  - sequelize,
+  - bcrypt,
+  - dotenv,
+  - babel/core
 
 ### Installation
 1. Clone the repository
@@ -44,6 +52,14 @@ For music lovers, this application will allow users to register and log in secur
 - User authentication via express-session and cookies
 - Music preference selection
 - Display artist, songs, community playlist
+
+![Homepage](https://github.com/pinkhaze/ecommerce-back-end/assets/55771228/9691b3a5-444c-41e2-8d41-a76a22d68ff9)
+
+![Login](https://github.com/pinkhaze/ecommerce-back-end/assets/55771228/135bdc23-fcf9-4347-a131-82445316ee0a)
+
+![Signup](https://github.com/pinkhaze/ecommerce-back-end/assets/55771228/adb0897b-0014-4030-88a4-40bce9c9b656)
+
+![Dashboard](https://github.com/pinkhaze/ecommerce-back-end/assets/55771228/a911a2f3-16fe-4357-85f5-ce5d793bc72d)
 
 ## Technologies Used
 - Node.js
